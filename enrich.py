@@ -3,6 +3,7 @@ import sys
 
 from ioc_detector import detect_ioc_type
 from enrichment.virustotal import check_hash_vt, check_url_vt
+from enrichment.abuseipdb import check_ip_abuseipdb
 from display import display_results
 
 def parse_args(argv=None):
@@ -20,16 +21,15 @@ def main(argv=None) -> None:
         result = check_url_vt(ioc)              
     # call abuseipdb + whois      
     elif ioc_type == "ip":
-        # coming soon
-        return    
+        result = check_ip_abuseipdb(ioc)
+       # result = check_ip_abuseipdb(ioc)       
     # call virustotal hash lookup    
     elif ioc_type in ["md5", "sha1", "sha256"]:
         result = check_hash_vt(ioc)        
     # call virustotal domain lookup + whois     
     elif ioc_type == "domain":
         # coming soon
-        return
-        
+        return        
     else:
         print("Unknown IOC type")
         raise SystemExit(1)
