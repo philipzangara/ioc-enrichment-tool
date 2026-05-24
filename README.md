@@ -23,7 +23,7 @@ pip install -r requirements.txt
 
 This tool uses the following free APIs:
 - VirusTotal: https://www.virustotal.com (free account required)
-- AbuseIPDB: https://www.abuseipdb.com (free account required, coming soon)
+- AbuseIPDB: https://www.abuseipdb.com (free account required)
 
 URL and hash analysis will be skipped if keys are not present.
 
@@ -39,9 +39,24 @@ ABUSEIPDB_API_KEY=your_key_here
 - VirusTotal hash enrichment
 - AbuseIPDB IP enrichment 
 - Domain enrichment
+- WHOIS lookup for domain and URL IOC types
+
+## Sample Output
+
+**Hash Lookup**
+![Hash Lookup](assets/hash_lookup.png)
+
+**URL Lookup**
+![URL Lookup](assets/url_lookup.png)
+
+**IP Lookup**
+![IP Lookup](assets/ip_lookup.png)
+
+**Domain Lookup**
+![Domain Lookup](assets/domain_lookup.png)
 
 ## Sample Data
-Test IOCs sourced from: https://www.virustotal.com
+Test IOCs sourced from publicly available phishing and malware feeds.
 
 ## Code Quality
 - Type checked with mypy
