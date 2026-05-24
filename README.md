@@ -66,6 +66,29 @@ ABUSEIPDB_API_KEY=your_key_here
 **Domain Lookup**
 ![Domain Lookup](assets/domain_lookup.png)
 
+## How It Works
+
+1. Detects the IOC type automatically (URL, IP, hash, or domain)
+2. Routes to the appropriate enrichment APIs based on type
+3. URL and domain lookups include WHOIS registration data
+4. Returns a verdict based on vendor detections and abuse scores
+
+| IOC Type | APIs Used |
+|----------|-----------|
+| URL      | VirusTotal, WHOIS |
+| IP       | AbuseIPDB |
+| Hash     | VirusTotal |
+| Domain   | VirusTotal, WHOIS |
+
+## MITRE ATT&CK
+
+This tool supports investigation of the following techniques:
+
+- T1566 — Phishing (URL and domain triage)
+- T1071 — Application Layer Protocol (domain and URL analysis)
+- T1204 — User Execution (malicious hash identification)
+- T1190 — Exploit Public-Facing Application (IP reputation lookup)
+
 
 ## Sample Data
 Test IOCs sourced from publicly available phishing and malware feeds.
