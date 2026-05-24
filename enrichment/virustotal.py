@@ -34,7 +34,7 @@ def check_hash_vt(ioc: str) -> dict:
         "meaningful_name": attributes.get("meaningful_name", "Unknown"),
         "file_type": attributes.get("type_description", "Unknown"),
         "total_votes": attributes["total_votes"]
-}
+    }
             
 # check URLS in VirusTotal
 # rate limit to 15 seconds. Only 4 free API calls per minute.

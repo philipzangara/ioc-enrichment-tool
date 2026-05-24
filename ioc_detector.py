@@ -10,7 +10,7 @@ def detect_ioc_type(ioc: str) -> str:
     try:
         ipaddress.ip_address(ioc)
         return "ip"
-    except (ValueError):
+    except ValueError:
         pass
 
     # check if hexadecimal

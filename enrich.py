@@ -10,7 +10,7 @@ from display import display_results
 
 def parse_args(argv=None):
     parser = argparse.ArgumentParser(description="Type URL, IP, hash, or domain")
-    parser.add_argument("ioc", help="URL, IP,  hash, or domain")
+    parser.add_argument("ioc", help="URL, IP, hash, or domain")
     return parser.parse_args(argv)
 
 def main(argv=None) -> None:
