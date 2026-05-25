@@ -9,7 +9,7 @@ api_key = os.getenv("VT_API_KEY") or ""
 # check hash in VirusTotal
 # rate limit to 15 seconds. Only 4 free API calls per minute.
 def check_hash_vt(ioc: str) -> dict:
-   
+
     if not api_key:
         return {"error": "No VT API key found in .env"}
 
@@ -36,7 +36,7 @@ def check_hash_vt(ioc: str) -> dict:
         "total_votes": attributes["total_votes"]
     }
             
-# check URLS in VirusTotal
+# check URL in VirusTotal
 # rate limit to 15 seconds. Only 4 free API calls per minute.
 def check_url_vt(ioc: str) -> dict:
    
@@ -45,7 +45,8 @@ def check_url_vt(ioc: str) -> dict:
 
     ioc_id = base64.urlsafe_b64encode(ioc.encode()).decode().rstrip('=')
 
-    headers = {"x-apikey": api_key}
+    headers = {"x-apikey": api_key}    
+    # VT URL endpoint requires form data, not JSON
     data = {"url": ioc} 
     post_response = requests.post("https://www.virustotal.com/api/v3/urls", 
                               headers=headers, data=data) # type: ignore

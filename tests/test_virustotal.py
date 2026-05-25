@@ -43,6 +43,7 @@ class TestCheckHashVt(unittest.TestCase):
         mock_get.return_value = mock_response
         result = check_hash_vt("fakehash123")
         self.assertIn("error", result)
+        
 class TestCheckWhois(unittest.TestCase):
 
     @patch('enrichment.whois_check.whois.whois')

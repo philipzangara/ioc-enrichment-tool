@@ -15,7 +15,7 @@ JSON output:
 ```
 python enrich.py <ioc> --output json
 ```
-Pipe to file::
+Pipe to file:
 ```
 python enrich.py <ioc> --output json > result.json
 ```
@@ -33,6 +33,9 @@ This tool uses the following free APIs:
 - VirusTotal: https://www.virustotal.com (free account required)
 - AbuseIPDB: https://www.abuseipdb.com (free account required)
 
+**Note: VirusTotal free tier is limited to 4 requests per minute. Allow 15 seconds between lookups to avoid rate limiting.**
+
+
 URL and hash analysis will be skipped if keys are not present.
 
 Add keys to a `.env` file in the project directory:
@@ -45,7 +48,7 @@ ABUSEIPDB_API_KEY=your_key_here
 - IOC type detection (URL, IP, hash, domain)
 - VirusTotal URL enrichment
 - VirusTotal hash enrichment
-- AbuseIPDB IP enrichment 
+- AbuseIPDB IP enrichment
 - Domain enrichment
 - WHOIS lookup for domain and URL IOC types
 
@@ -54,14 +57,11 @@ ABUSEIPDB_API_KEY=your_key_here
 **Hash Lookup**
 ![Hash Lookup](assets/hash_lookup.png)
 
-
 **URL Lookup**
 ![URL Lookup](assets/url_lookup.png)
 
-
 **IP Lookup**
-![IP Lookup](assets/ip_lookup.png)
-
+![IP Lookup](assets/ip_lookup.png)  
 
 **Domain Lookup**
 ![Domain Lookup](assets/domain_lookup.png)

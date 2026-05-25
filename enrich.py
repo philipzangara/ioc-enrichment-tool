@@ -1,5 +1,4 @@
 import argparse 
-import sys
 import tldextract
 import json
 
@@ -22,22 +21,22 @@ def main(argv=None) -> None:
 
     # call virustotal url lookup
     if ioc_type == "url":
-        result = check_url_vt(ioc)   
+        result = check_url_vt(ioc)
         extract = tldextract.extract(ioc)
         domain = extract.domain + "." + extract.suffix
         whois_result = check_whois(domain)
-        result = {**result, "whois": whois_result}            
-    # call abuseipdb + whois      
+        result = {**result, "whois": whois_result}
+    # call abuseipdb + whois
     elif ioc_type == "ip":
-        result = check_ip_abuseipdb(ioc)   
-    # call virustotal hash lookup    
+        result = check_ip_abuseipdb(ioc)
+    # call virustotal hash lookup
     elif ioc_type in ["md5", "sha1", "sha256"]:
-        result = check_hash_vt(ioc)        
-    # call virustotal domain lookup + whois     
+        result = check_hash_vt(ioc)
+    # call virustotal domain lookup + whois
     elif ioc_type == "domain":
-        result = check_domain_vt(ioc)  
-        whois_result = check_whois(ioc)   
-        result = {**result, "whois": whois_result}           
+        result = check_domain_vt(ioc)
+        whois_result = check_whois(ioc)
+        result = {**result, "whois": whois_result}
     else:
         print("Unknown IOC type")
         raise SystemExit(1)

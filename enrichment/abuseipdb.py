@@ -33,4 +33,3 @@ def check_ip_abuseipdb(ioc: str) -> dict:
         }
     except Exception as e:
         return {"error": str(e)}
-
